@@ -13,6 +13,10 @@ import cn.panzi.receiver.permission.RxPermissionRequest
 import kotlinx.android.synthetic.main.activity_main.*
 import org.altbeacon.beacon.*
 
+/**
+ * MainActivity
+ * @author sunpan
+ */
 class MainActivity : AppCompatActivity(), BeaconConsumer {
 
     private val TAG = MainActivity::class.java.simpleName
