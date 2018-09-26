@@ -1,0 +1,2 @@
+# AndroidBeaconReceiver
+Android接收iBeacon广播
