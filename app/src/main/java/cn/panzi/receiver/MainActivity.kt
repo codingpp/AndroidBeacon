@@ -1,16 +1,15 @@
 package cn.panzi.receiver
 
-import android.Manifest
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.os.RemoteException
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.widget.Toast
 import cn.panzi.receiver.adapter.BeaconListAdapter
+import cn.panzi.receiver.permission.RequestCallback
+import cn.panzi.receiver.permission.RxPermissionRequest
 import kotlinx.android.synthetic.main.activity_main.*
 import org.altbeacon.beacon.*
 
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         setContentView(R.layout.activity_main)
         initView()
         requestPermission()
-        initBeaconManager()
     }
 
     /**
@@ -49,7 +47,6 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
     private fun initBeaconManager() {
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager.beaconParsers.add(BeaconParser().setBeaconLayout(BEACON_LAYOUT))
-        beaconManager.foregroundScanPeriod = 5000
         beaconManager.bind(this)
     }
 
@@ -74,20 +71,17 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
      * 权限请求
      */
     private fun requestPermission() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (ContextCompat.checkSelfPermission(
-                    this@MainActivity,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this@MainActivity,
-                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
-                    PERMISSION_REQUEST_COARSE_LOCATION
-                )
-                return
+        val requestPermission = RxPermissionRequest()
+        requestPermission.request(this, object : RequestCallback {
+            override fun onRequestPermissionSuccess() {
+                initBeaconManager()
             }
-        }
+
+            override fun onRequestPermissionFailure() {
+                Toast.makeText(this@MainActivity, "定位权限未开启", Toast.LENGTH_SHORT).show()
+            }
+
+        }, android.Manifest.permission.ACCESS_COARSE_LOCATION)
     }
 
     /**
