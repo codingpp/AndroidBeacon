@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CommonCard">
+        <attr name="card_image" format="reference" />
+        <attr name="card_title" format="string" />
+        <attr name="card_subscribe" format="string" />
+    </declare-styleable>
+
+</resources>
