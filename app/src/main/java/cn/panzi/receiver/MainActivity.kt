@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         beaconManager.bind(this)
     }
 
+
     override fun onBeaconServiceConnect() {
         beaconManager.addRangeNotifier { beacons, _ ->
             if (beacons.isNotEmpty()) {
