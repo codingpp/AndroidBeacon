@@ -16,7 +16,7 @@ import org.altbeacon.beacon.Beacon
  */
 class BeaconListAdapter(
     var context: Context,
-    var beaconList: List<Beacon>
+    private var beaconList: List<Beacon>
 ) : RecyclerView.Adapter<BeaconListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
