@@ -30,7 +30,6 @@ class CommonLoader private constructor() {
 
         fun loadImage(localImage: Int, imageView: ImageView) {
             instance.imageLoader.loadImage(localImage, imageView)
-
         }
 
         fun loadImage(url: String, imageView: ImageView, defaultImage: Int, errorImage: Int) {

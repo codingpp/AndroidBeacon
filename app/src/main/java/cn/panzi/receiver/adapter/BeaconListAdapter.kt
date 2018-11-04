@@ -1,6 +1,5 @@
 package cn.panzi.receiver.adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import org.altbeacon.beacon.Beacon
  * @date 2018/9/25
  */
 class BeaconListAdapter(
-    var context: Context,
     private var beaconList: List<Beacon>
 ) : RecyclerView.Adapter<BeaconListAdapter.MyHolder>() {
 

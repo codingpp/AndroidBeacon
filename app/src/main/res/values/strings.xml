@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BeaconReceiver</string>
+
+    <string name="no_location_permission">定位权限未开启</string>
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.RemoteException
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.widget.Toast
 import cn.panzi.receiver.adapter.BeaconListAdapter
 import cn.panzi.receiver.permission.RequestCallback
@@ -17,9 +16,9 @@ import org.altbeacon.beacon.*
  * MainActivity
  * @author sunpan
  */
+
 class MainActivity : AppCompatActivity(), BeaconConsumer {
 
-    private val TAG = MainActivity::class.java.simpleName
     private val PERMISSION_REQUEST_COARSE_LOCATION: Int = 1001
     private val BEACON_LAYOUT: String = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"
     private lateinit var beaconList: ArrayList<Beacon>
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recycle_view.layoutManager = linearLayoutManager
-        recycle_view.adapter = BeaconListAdapter(this, beaconList)
+        recycle_view.adapter = BeaconListAdapter(beaconList)
     }
 
     /**
@@ -58,7 +57,6 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
     override fun onBeaconServiceConnect() {
         beaconManager.addRangeNotifier { beacons, _ ->
             if (beacons.isNotEmpty()) {
-                Log.e(TAG, beacons.size.toString())
                 beaconList.clear()
                 beaconList.addAll(beacons)
                 recycle_view.adapter!!.notifyDataSetChanged()
@@ -82,7 +80,11 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
             }
 
             override fun onRequestPermissionFailure() {
-                Toast.makeText(this@MainActivity, "定位权限未开启", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@MainActivity,
+                    getString(R.string.no_location_permission),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         }, android.Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -100,8 +102,6 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         when (requestCode) {
             PERMISSION_REQUEST_COARSE_LOCATION -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 initBeaconManager()
-            } else {
-                //
             }
         }
     }
