@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.RemoteException
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.Toast
 import cn.panzi.receiver.adapter.BeaconListAdapter
+import cn.panzi.receiver.ext.showToast
 import cn.panzi.receiver.permission.RequestCallback
 import cn.panzi.receiver.permission.RxPermissionRequest
 import kotlinx.android.synthetic.main.activity_main.*
@@ -80,11 +80,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
             }
 
             override fun onRequestPermissionFailure() {
-                Toast.makeText(
-                    this@MainActivity,
-                    getString(R.string.no_location_permission),
-                    Toast.LENGTH_SHORT
-                ).show()
+                showToast(getString(R.string.no_location_permission))
             }
 
         }, android.Manifest.permission.ACCESS_COARSE_LOCATION)
