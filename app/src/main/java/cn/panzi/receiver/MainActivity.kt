@@ -53,13 +53,12 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         beaconManager.bind(this)
     }
 
-
     override fun onBeaconServiceConnect() {
         beaconManager.addRangeNotifier { beacons, _ ->
-            if (beacons.isNotEmpty()) {
+            beacons?.let {
                 beaconList.clear()
                 beaconList.addAll(beacons)
-                recycle_view.adapter!!.notifyDataSetChanged()
+                recycle_view.adapter?.notifyDataSetChanged()
             }
         }
 

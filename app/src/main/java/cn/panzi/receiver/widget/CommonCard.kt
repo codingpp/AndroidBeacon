@@ -2,7 +2,6 @@ package cn.panzi.receiver.widget
 
 import android.content.Context
 import android.support.annotation.DrawableRes
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
@@ -40,10 +39,10 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        if (!TextUtils.isEmpty(cardTitle)) {
+        if (!cardTitle.isNullOrBlank()) {
             tv_card_title.text = cardTitle
         }
-        if (!TextUtils.isEmpty(cardSubscribe)) {
+        if (!cardSubscribe.isNullOrBlank()) {
             tv_card_subscribe.text = cardSubscribe
         }
         if (-1 != cardImage) {
@@ -55,7 +54,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      * 设置标题
      */
     fun setCardTitleText(cardTitle: String) {
-        if (!TextUtils.isEmpty(cardTitle)) {
+        if (!cardTitle.isBlank()) {
             tv_card_title.text = cardTitle
         }
     }
@@ -64,7 +63,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      * 设置副标题
      */
     fun setCardSubscribeText(subscribe: String) {
-        if (!TextUtils.isEmpty(subscribe)) {
+        if (!subscribe.isBlank()) {
             tv_card_subscribe.text = subscribe
         }
     }

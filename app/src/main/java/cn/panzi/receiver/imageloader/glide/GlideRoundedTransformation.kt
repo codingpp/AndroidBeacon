@@ -30,19 +30,19 @@ class GlideRoundedTransform @JvmOverloads constructor(dp: Int = 4) : BitmapTrans
     }
 
     private fun roundCrop(pool: BitmapPool, source: Bitmap?): Bitmap? {
-        if (source == null) {
-            return null
+        source?.let {
+            var result: Bitmap? = pool.get(it.width, it.height, Bitmap.Config.ARGB_8888)
+            if (result == null) {
+                result = Bitmap.createBitmap(it.width, it.height, Bitmap.Config.ARGB_8888)
+            }
+            val canvas = Canvas(result!!)
+            val paint = Paint()
+            paint.shader = BitmapShader(it, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+            paint.isAntiAlias = true
+            val rectF = RectF(0f, 0f, it.width.toFloat(), it.height.toFloat())
+            canvas.drawRoundRect(rectF, radius, radius, paint)
+            return result
         }
-        var result: Bitmap? = pool.get(source.width, source.height, Bitmap.Config.ARGB_8888)
-        if (result == null) {
-            result = Bitmap.createBitmap(source.width, source.height, Bitmap.Config.ARGB_8888)
-        }
-        val canvas = Canvas(result!!)
-        val paint = Paint()
-        paint.shader = BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
-        paint.isAntiAlias = true
-        val rectF = RectF(0f, 0f, source.width.toFloat(), source.height.toFloat())
-        canvas.drawRoundRect(rectF, radius, radius, paint)
-        return result
+        return null
     }
 }
