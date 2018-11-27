@@ -1,6 +1,5 @@
 package cn.panzi.receiver.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import org.altbeacon.beacon.Beacon
  */
 class BeaconListAdapter(
     private var beaconList: List<Beacon>
-) : RecyclerView.Adapter<BeaconListAdapter.MyHolder>() {
+) : androidx.recyclerview.widget.RecyclerView.Adapter<BeaconListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val view =
@@ -35,7 +34,7 @@ class BeaconListAdapter(
         holder.commonCard.setCardImageRes(R.mipmap.ic_launcher)
     }
 
-    class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val commonCard: CommonCard = itemView.findViewById(R.id.common_card)
     }
 

@@ -3,8 +3,8 @@ package cn.panzi.receiver
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.RemoteException
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import cn.panzi.receiver.adapter.BeaconListAdapter
 import cn.panzi.receiver.ext.showToast
 import cn.panzi.receiver.permission.RequestCallback
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
     private fun initView() {
         beaconList = ArrayList()
         recycle_view.setHasFixedSize(true)
-        val linearLayoutManager = LinearLayoutManager(this)
+        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recycle_view.layoutManager = linearLayoutManager
         recycle_view.adapter = BeaconListAdapter(beaconList)

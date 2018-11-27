@@ -1,8 +1,8 @@
 package cn.panzi.receiver.imageloader
 
-import android.support.annotation.DrawableRes
-import android.support.annotation.NonNull
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
+import androidx.annotation.NonNull
 
 /**
  * 图片加载

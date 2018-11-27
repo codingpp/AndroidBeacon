@@ -1,10 +1,10 @@
 package cn.panzi.receiver.widget
 
 import android.content.Context
-import android.support.annotation.DrawableRes
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
+import androidx.annotation.DrawableRes
 import cn.panzi.receiver.R
 import cn.panzi.receiver.imageloader.CommonLoader
 import kotlinx.android.synthetic.main.common_card.view.*
