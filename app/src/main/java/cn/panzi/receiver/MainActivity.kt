@@ -4,7 +4,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.RemoteException
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.panzi.receiver.adapter.BeaconListAdapter
 import cn.panzi.receiver.ext.showToast
 import cn.panzi.receiver.permission.RequestCallback
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         beaconList = ArrayList()
         recycle_view.setHasFixedSize(true)
         val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        linearLayoutManager.orientation = RecyclerView.VERTICAL
         recycle_view.layoutManager = linearLayoutManager
         recycle_view.adapter = BeaconListAdapter(beaconList)
     }
