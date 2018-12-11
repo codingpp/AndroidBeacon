@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import cn.panzi.receiver.R
-import cn.panzi.receiver.imageloader.CommonLoader
+import cn.panzi.receiver.ext.loadImage
 import kotlinx.android.synthetic.main.common_card.view.*
 
 /**
@@ -72,7 +72,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      * 加载网络图片
      */
     fun setCardImage(imageUrl: String) {
-        CommonLoader.loadImage(imageUrl, img_card_image)
+        img_card_image.loadImage(imageUrl)
     }
 
     /**
