@@ -8,7 +8,7 @@ import cn.panzi.receiver.widget.CommonCard
 import org.altbeacon.beacon.Beacon
 
 /**
- *
+ * Beacon设备列表适配器
  * @author sunpan
  * @date 2018/9/25
  */
