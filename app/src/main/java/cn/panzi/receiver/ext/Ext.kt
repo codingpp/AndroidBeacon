@@ -6,7 +6,7 @@ import android.widget.Toast
 import cn.panzi.receiver.imageloader.CommonLoader
 
 /**
- *
+ * 扩展函数
  * @author sunpan
  * @date 2018/11/19
  */
