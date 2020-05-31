@@ -20,6 +20,7 @@ import org.altbeacon.beacon.*
 class MainActivity : AppCompatActivity(), BeaconConsumer {
 
     protected val TAG = "MonitoringActivity"
+    private val BEACON_LAYOUT: String = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"
 
     private val PERMISSION_REQUEST_COARSE_LOCATION: Int = 1001
     private lateinit var beaconList: ArrayList<Beacon>
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
      * 初始化BeaconManager
      */
     private fun initBeaconManager() {
-        beaconManager = BeaconManager.getInstanceForApplication(this);
+        beaconManager = BeaconManager.getInstanceForApplication(this)
+        beaconManager.beaconParsers.add(BeaconParser().setBeaconLayout(BEACON_LAYOUT))
         beaconManager.bind(this)
     }
 
