@@ -1,4 +1,4 @@
-package cn.panzi.receiver.permission
+package cn.condingpp.receiver.permission
 
 import android.app.Activity
 import com.tbruyelle.rxpermissions.RxPermissions
@@ -6,7 +6,7 @@ import java.util.*
 
 /**
  * 权限请求
- * @author sunpan
+ * @author codingpp
  * @date 2018/9/26
  */
 class RxPermissionRequest : RequestPermission {

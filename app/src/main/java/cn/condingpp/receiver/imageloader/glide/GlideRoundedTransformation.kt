@@ -1,4 +1,4 @@
-package cn.panzi.receiver.imageloader.glide
+package cn.condingpp.receiver.imageloader.glide
 
 import android.content.res.Resources
 import android.graphics.*
@@ -7,7 +7,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import java.security.MessageDigest
 
 /**
- * Created by SunPan on 2018/7/24.
+ * Created by codingpp on 2018/7/24.
  */
 class GlideRoundedTransform @JvmOverloads constructor(dp: Int = 4) : BitmapTransformation() {
 

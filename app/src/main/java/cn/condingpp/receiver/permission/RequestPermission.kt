@@ -1,10 +1,10 @@
-package cn.panzi.receiver.permission
+package cn.condingpp.receiver.permission
 
 import android.app.Activity
 
 /**
  *
- * @author sunpan
+ * @author codingpp
  * @date 2018/9/26
  */
 interface RequestPermission {

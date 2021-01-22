@@ -1,10 +1,10 @@
-package cn.panzi.receiver.app
+package cn.condingpp.receiver.app
 
 import android.app.Application
 
 /**
  * Application
- * @author sunpan
+ * @author codingpp
  * @date 2018/11/21
  */
 class BeaconApplication : Application() {

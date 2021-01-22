@@ -1,4 +1,4 @@
-package cn.panzi.receiver.widget
+package cn.condingpp.receiver.widget
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,12 +6,12 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import cn.panzi.receiver.R
-import cn.panzi.receiver.ext.loadImage
+import cn.condingpp.receiver.ext.loadImage
 import kotlinx.android.synthetic.main.common_card.view.*
 
 /**
  * CardView
- * Created by SunPan on 2018/7/20.
+ * Created by codingpp on 2018/7/20.
  */
 @Suppress("unused")
 class CommonCard constructor(context: Context, attributeSet: AttributeSet) :

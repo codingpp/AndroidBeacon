@@ -1,13 +1,13 @@
-package cn.panzi.receiver.ext
+package cn.condingpp.receiver.ext
 
 import android.app.Activity
 import android.widget.ImageView
 import android.widget.Toast
-import cn.panzi.receiver.imageloader.CommonLoader
+import cn.condingpp.receiver.imageloader.CommonLoader
 
 /**
  * 扩展函数
- * @author sunpan
+ * @author codingpp
  * @date 2018/11/19
  */
 

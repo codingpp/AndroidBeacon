@@ -1,8 +1,8 @@
-package cn.panzi.receiver.permission
+package cn.condingpp.receiver.permission
 
 /**
  * 请求权限回调
- * @author sunpan
+ * @author codingpp
  * @date 2018/9/26
  */
 interface RequestCallback {

@@ -1,10 +1,10 @@
-package cn.panzi.receiver.imageloader
+package cn.condingpp.receiver.imageloader
 
 import android.widget.ImageView
-import cn.panzi.receiver.imageloader.glide.GlideImageLoader
+import cn.condingpp.receiver.imageloader.glide.GlideImageLoader
 
 /**
- * Created by SunPan on 2018/7/24.
+ * Created by codingpp on 2018/7/24.
  */
 @Suppress("unused")
 class CommonLoader private constructor() {

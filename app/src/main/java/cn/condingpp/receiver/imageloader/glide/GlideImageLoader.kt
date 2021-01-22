@@ -1,13 +1,13 @@
-package cn.panzi.receiver.imageloader.glide
+package cn.condingpp.receiver.imageloader.glide
 
 import android.widget.ImageView
-import cn.panzi.receiver.imageloader.ImageLoader
+import cn.condingpp.receiver.imageloader.ImageLoader
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 /**
  * Glide加载实现
- * Created by SunPan on 2018/7/24.
+ * Created by codingpp on 2018/7/24.
  */
 class GlideImageLoader : ImageLoader {
 

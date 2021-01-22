@@ -1,15 +1,15 @@
-package cn.panzi.receiver.adapter
+package cn.condingpp.receiver.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cn.panzi.receiver.R
-import cn.panzi.receiver.widget.CommonCard
+import cn.condingpp.receiver.widget.CommonCard
 import org.altbeacon.beacon.Beacon
 
 /**
  * Beacon设备列表适配器
- * @author sunpan
+ * @author codingpp
  * @date 2018/9/25
  */
 class BeaconListAdapter(

@@ -1,20 +1,21 @@
-package cn.panzi.receiver
+package cn.condingpp.receiver
 
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.RemoteException
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import cn.panzi.receiver.adapter.BeaconListAdapter
-import cn.panzi.receiver.ext.showToast
-import cn.panzi.receiver.permission.RequestCallback
-import cn.panzi.receiver.permission.RxPermissionRequest
+import cn.panzi.receiver.R
+import cn.condingpp.receiver.adapter.BeaconListAdapter
+import cn.condingpp.receiver.ext.showToast
+import cn.condingpp.receiver.permission.RequestCallback
+import cn.condingpp.receiver.permission.RxPermissionRequest
 import kotlinx.android.synthetic.main.activity_main.*
 import org.altbeacon.beacon.*
 
 /**
  * MainActivity
- * @author sunpan
+ * @author codingpp
  */
 
 class MainActivity : AppCompatActivity(), BeaconConsumer {

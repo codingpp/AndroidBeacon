@@ -1,4 +1,4 @@
-package cn.panzi.receiver.imageloader
+package cn.condingpp.receiver.imageloader
 
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull
 
 /**
  * 图片加载
- * Created by SunPan on 2018/7/24.
+ * Created by codingpp on 2018/7/24.
  */
 interface ImageLoader {
 
