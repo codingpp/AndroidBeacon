@@ -1,5 +1,6 @@
 package cn.condingpp.beacon;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import cn.codingpp.beacon.databinding.ActivityMainBinding;
 import cn.condingpp.beacon.broadcast.BroadcastActivity;
 import cn.condingpp.beacon.receive.ReceiveActivity;
+import cn.condingpp.beacon.receive.permission.RequestCallback;
+import cn.condingpp.beacon.receive.permission.RxPermissionRequest;
 
 /**
  * 主页
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initView();
+        requestPermission();
     }
 
     /**
@@ -44,6 +48,21 @@ public class MainActivity extends AppCompatActivity {
                 ReceiveActivity.Companion.jump(MainActivity.this);
             }
         });
+    }
+
+    private void requestPermission() {
+        RxPermissionRequest request = new RxPermissionRequest();
+        request.request(this, new RequestCallback() {
+            @Override
+            public void onRequestPermissionSuccess() {
+
+            }
+
+            @Override
+            public void onRequestPermissionFailure() {
+
+            }
+        }, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION);
     }
 
 }
