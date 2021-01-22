@@ -2,4 +2,14 @@
     <string name="app_name">BeaconReceiver</string>
 
     <string name="no_location_permission">定位权限未开启</string>
+    <string name="text_broadcast">发送</string>
+    <string name="btn_receive">接收</string>
+
+    <string name="uuid">UUID :</string>
+    <string name="wechat_uuid">FDA50693-A4E2-4FB1-AFCF-C6EB07647825</string>
+    <string name="major">Major :</string>
+    <string name="hint_major">请输入Major(0–65535)</string>
+    <string name="minor">Minor :</string>
+    <string name="hint_minor">请输入Minor(0–65535)</string>
+    <string name="start">开始发射</string>
 </resources>

@@ -1,24 +1,31 @@
-package cn.condingpp.receiver
+package cn.condingpp.beacon.receive
 
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.RemoteException
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import cn.panzi.receiver.R
-import cn.condingpp.receiver.adapter.BeaconListAdapter
-import cn.condingpp.receiver.ext.showToast
-import cn.condingpp.receiver.permission.RequestCallback
-import cn.condingpp.receiver.permission.RxPermissionRequest
-import kotlinx.android.synthetic.main.activity_main.*
+import cn.codingpp.beacon.databinding.ActivityReceiveBinding
+import cn.condingpp.beacon.ext.showToast
+import cn.condingpp.beacon.receive.adapter.BeaconListAdapter
+import cn.condingpp.beacon.receive.permission.RequestCallback
+import cn.condingpp.beacon.receive.permission.RxPermissionRequest
 import org.altbeacon.beacon.*
+import cn.codingpp.beacon.R
+
 
 /**
- * MainActivity
+ * 接收页面
  * @author codingpp
  */
 
-class MainActivity : AppCompatActivity(), BeaconConsumer {
+class ReceiveActivity : AppCompatActivity(), BeaconConsumer {
+
+    private lateinit var binding: ActivityReceiveBinding
 
     protected val TAG = "MonitoringActivity"
     private val BEACON_LAYOUT: String = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"
@@ -27,10 +34,23 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
     private lateinit var beaconList: ArrayList<Beacon>
 
     private lateinit var beaconManager: BeaconManager
+    private lateinit var adapter: BeaconListAdapter
+
+    companion object {
+        /**
+         * 跳转到接收页面
+         * @param context ctx
+         */
+        fun jump(context: Context) {
+            val intent = Intent(context, ReceiveActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityReceiveBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initView()
         requestPermission()
     }
@@ -40,11 +60,11 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
      */
     private fun initView() {
         beaconList = ArrayList()
-        recycle_view.setHasFixedSize(true)
-        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+        val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
-        recycle_view.layoutManager = linearLayoutManager
-        recycle_view.adapter = BeaconListAdapter(beaconList)
+        binding.recycleView.layoutManager = linearLayoutManager
+        adapter = BeaconListAdapter(this, beaconList)
+        binding.recycleView.adapter = adapter
     }
 
     /**
@@ -60,9 +80,10 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         beaconManager.removeAllMonitorNotifiers()
         beaconManager.addRangeNotifier { beacons, p1 ->
             beacons?.let {
-                beaconList.clear()
-                beaconList.addAll(beacons)
-                recycle_view.adapter?.notifyDataSetChanged()
+                Log.e(TAG, "onBeaconServiceConnect: " + beacons.size)
+//                beaconList.clear()
+//                beaconList.addAll(beacons)
+                adapter.update(beacons.toMutableList())
             }
         }
 

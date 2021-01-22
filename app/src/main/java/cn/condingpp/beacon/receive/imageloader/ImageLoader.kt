@@ -1,4 +1,4 @@
-package cn.condingpp.receiver.imageloader
+package cn.condingpp.beacon.receive.imageloader
 
 import android.widget.ImageView
 import androidx.annotation.DrawableRes

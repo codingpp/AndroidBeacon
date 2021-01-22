@@ -5,13 +5,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
-        applicationId "cn.panzi.receiver"
-        minSdkVersion 18
-        targetSdkVersion 28
+        applicationId "cn.codingpp.beacon"
+        minSdkVersion 21
+        targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -23,6 +23,10 @@ android {
 
     lintOptions {
         disable 'GoogleAppIndexingWarning'
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -44,5 +48,7 @@ dependencies {
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    //lottie动画
+    implementation 'com.airbnb.android:lottie:2.6.1'
 
 }

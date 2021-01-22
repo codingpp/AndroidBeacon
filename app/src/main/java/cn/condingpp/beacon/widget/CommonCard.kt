@@ -1,12 +1,12 @@
-package cn.condingpp.receiver.widget
+package cn.condingpp.beacon.widget
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import cn.panzi.receiver.R
-import cn.condingpp.receiver.ext.loadImage
+import cn.codingpp.beacon.R
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.common_card.view.*
 
 /**
@@ -72,7 +72,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      * 加载网络图片
      */
     fun setCardImage(imageUrl: String) {
-        img_card_image.loadImage(imageUrl)
+        Glide.with(context).load(imageUrl).into(img_card_image)
     }
 
     /**

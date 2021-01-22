@@ -1,4 +1,4 @@
-package cn.condingpp.receiver.permission
+package cn.condingpp.beacon.receive.permission
 
 /**
  * 请求权限回调

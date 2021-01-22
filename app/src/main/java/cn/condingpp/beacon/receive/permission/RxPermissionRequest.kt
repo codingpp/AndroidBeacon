@@ -1,4 +1,4 @@
-package cn.condingpp.receiver.permission
+package cn.condingpp.beacon.receive.permission
 
 import android.app.Activity
 import com.tbruyelle.rxpermissions.RxPermissions

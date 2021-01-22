@@ -1,4 +1,4 @@
-package cn.condingpp.receiver.imageloader.glide
+package cn.condingpp.beacon.receive.imageloader.glide
 
 import android.content.res.Resources
 import android.graphics.*

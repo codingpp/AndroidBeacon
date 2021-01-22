@@ -1,7 +1,7 @@
-package cn.condingpp.receiver.imageloader.glide
+package cn.condingpp.beacon.receive.imageloader.glide
 
 import android.widget.ImageView
-import cn.condingpp.receiver.imageloader.ImageLoader
+import cn.condingpp.beacon.receive.imageloader.ImageLoader
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 

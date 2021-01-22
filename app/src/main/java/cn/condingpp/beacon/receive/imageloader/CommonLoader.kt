@@ -1,7 +1,7 @@
-package cn.condingpp.receiver.imageloader
+package cn.condingpp.beacon.receive.imageloader
 
 import android.widget.ImageView
-import cn.condingpp.receiver.imageloader.glide.GlideImageLoader
+import cn.condingpp.beacon.receive.imageloader.glide.GlideImageLoader
 
 /**
  * Created by codingpp on 2018/7/24.
