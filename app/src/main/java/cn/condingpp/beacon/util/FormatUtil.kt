@@ -2,7 +2,7 @@ package cn.condingpp.beacon.util
 
 /**
  * 工具类
- * @author SunPan
+ * @author codingpp
  * @date 2018/9/21
  */
 class FormatUtil {

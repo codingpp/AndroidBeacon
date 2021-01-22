@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_advertise.*
 
 /**
  * 广播页面
- * @author SunPan
+ * @author condingpp
  * @date 2018/9/20
  */
 class AdvertiseActivity : AppCompatActivity() {

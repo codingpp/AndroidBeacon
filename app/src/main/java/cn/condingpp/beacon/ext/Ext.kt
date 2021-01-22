@@ -5,7 +5,7 @@ import android.widget.Toast
 
 /**
  *
- * @author sunpan
+ * @author codingpp
  * @date 2018/11/19
  */
 fun Activity.showToast(content: String) {

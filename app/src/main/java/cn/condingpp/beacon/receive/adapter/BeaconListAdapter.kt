@@ -25,7 +25,6 @@ class BeaconListAdapter(
     }
 
     override fun getItemCount(): Int {
-        Log.e("SunPan", "getItemCount: " + beaconList.size)
         return beaconList.size
     }
 

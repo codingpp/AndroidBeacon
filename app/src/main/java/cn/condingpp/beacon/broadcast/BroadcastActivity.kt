@@ -12,7 +12,7 @@ import java.util.regex.Pattern
 
 /**
  * 主页
- * @author SunPan
+ * @author codingpp
  * @date 2018/9/20
  */
 class BroadcastActivity : AppCompatActivity() {

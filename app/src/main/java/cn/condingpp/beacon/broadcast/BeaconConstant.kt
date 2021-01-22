@@ -2,7 +2,7 @@ package cn.condingpp.beacon.broadcast
 
 /**
  * Constant
- * @author SunPan
+ * @author codingpp
  * @date 2018/9/21
  */
 object BeaconConstant {
