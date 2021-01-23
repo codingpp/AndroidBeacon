@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".BroadcastActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tv_uuid"
@@ -51,6 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:digits="0123456789"
         android:hint="@string/hint_major"
         android:inputType="number"
         android:maxLength="5"
@@ -79,6 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:digits="0123456789"
         android:hint="@string/hint_minor"
         android:inputType="number"
         android:maxLength="5"
