@@ -11,10 +11,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import cn.codingpp.beacon.R
+import cn.codingpp.beacon.databinding.ActivityAdvertiseBinding
 import cn.condingpp.beacon.util.FormatUtil
 import cn.condingpp.beacon.ext.showToast
-import kotlinx.android.synthetic.main.activity_advertise.*
 
 /**
  * 广播页面
@@ -22,6 +21,8 @@ import kotlinx.android.synthetic.main.activity_advertise.*
  * @date 2018/9/20
  */
 class AdvertiseActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityAdvertiseBinding
 
     private lateinit var mBluetoothAdapter: BluetoothAdapter
     private lateinit var mBluetoothLeAdvertiser: BluetoothLeAdvertiser
@@ -47,7 +48,8 @@ class AdvertiseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_advertise)
+        binding = ActivityAdvertiseBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initParams()
     }
 
@@ -104,14 +106,14 @@ class AdvertiseActivity : AppCompatActivity() {
 
         override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
             showToast("开启成功")
-            success_view.visibility = View.VISIBLE
-            fail_view.visibility = View.GONE
+            binding.successView.visibility = View.VISIBLE
+            binding.failView.visibility = View.GONE
         }
 
         override fun onStartFailure(errorCode: Int) {
             showToast("开启失败$errorCode")
-            success_view.visibility = View.GONE
-            fail_view.visibility = View.VISIBLE
+            binding.successView.visibility = View.GONE
+            binding.failView.visibility = View.VISIBLE
         }
     }
 
