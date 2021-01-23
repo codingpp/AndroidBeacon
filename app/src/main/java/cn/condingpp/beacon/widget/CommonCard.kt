@@ -2,12 +2,11 @@ package cn.condingpp.beacon.widget
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
-import android.widget.ImageView
+import android.view.LayoutInflater
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import cn.codingpp.beacon.R
+import cn.codingpp.beacon.databinding.CommonCardBinding
 import com.bumptech.glide.Glide
 
 /**
@@ -21,9 +20,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
     private var cardTitle: String? = ""
     private var cardImage: Int = -1
     private var cardSubscribe: String? = ""
-    private lateinit var tvCardTitle: TextView
-    private lateinit var imgCardImage: ImageView
-    private lateinit var tvCardSubscribe: TextView
+    private lateinit var commonCardBinding: CommonCardBinding
 
     init {
         initView()
@@ -38,22 +35,19 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
     }
 
     private fun initView() {
-        val view = View.inflate(context, R.layout.common_card, this)
-        tvCardTitle = view.findViewById(R.id.tv_card_title)
-        tvCardSubscribe = view.findViewById(R.id.tv_card_subscribe)
-        imgCardImage = view.findViewById(R.id.img_card_image)
+        commonCardBinding = CommonCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
         if (!cardTitle.isNullOrBlank()) {
-            tvCardTitle.text = cardTitle
+            commonCardBinding.tvCardTitle.text = cardTitle
         }
         if (!cardSubscribe.isNullOrBlank()) {
-            tvCardSubscribe.text = cardSubscribe
+            commonCardBinding.tvCardSubscribe.text = cardSubscribe
         }
         if (-1 != cardImage) {
-            imgCardImage.setImageResource(cardImage)
+            commonCardBinding.imgCardImage.setImageResource(cardImage)
         }
     }
 
@@ -62,7 +56,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      */
     fun setCardTitleText(cardTitle: String) {
         if (cardTitle.isNotBlank()) {
-            tvCardTitle.text = cardTitle
+            commonCardBinding.tvCardTitle.text = cardTitle
         }
     }
 
@@ -71,7 +65,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      */
     fun setCardSubscribeText(subscribe: String) {
         if (subscribe.isNotBlank()) {
-            tvCardSubscribe.text = subscribe
+            commonCardBinding.tvCardSubscribe.text = subscribe
         }
     }
 
@@ -79,7 +73,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
      * 加载网络图片
      */
     fun setCardImage(imageUrl: String) {
-        Glide.with(context).load(imageUrl).into(imgCardImage)
+        Glide.with(context).load(imageUrl).into(commonCardBinding.imgCardImage)
     }
 
     /**
@@ -88,7 +82,7 @@ class CommonCard constructor(context: Context, attributeSet: AttributeSet) :
 
     fun setCardImageRes(@DrawableRes imageRes: Int) {
         if (-1 != imageRes) {
-            imgCardImage.setImageResource(imageRes)
+            commonCardBinding.imgCardImage.setImageResource(imageRes)
         }
     }
 
