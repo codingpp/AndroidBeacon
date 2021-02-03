@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cn.codingpp.beacon.R
 import cn.codingpp.beacon.databinding.ItemBeaconBinding
+import cn.condingpp.beacon.widget.CommonCard
 import org.altbeacon.beacon.Beacon
 
 /**
@@ -35,11 +36,13 @@ class BeaconListAdapter(
     override fun onBindViewHolder(holder: MyHolder, p1: Int) {
         val name = beaconList[p1].id1.toString()
         val distance = beaconList[p1].distance.toString()
-        holder.binding.commonCard.setCardTitleText(name)
-        holder.binding.commonCard.setCardSubscribeText(distance)
-        holder.binding.commonCard.setCardImageRes(R.mipmap.ic_launcher)
+        holder.commonCard.setCardTitleText(name)
+        holder.commonCard.setCardSubscribeText(distance)
+        holder.commonCard.setCardImageRes(R.mipmap.ic_launcher)
     }
 
-    inner class MyHolder(var binding: ItemBeaconBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class MyHolder(binding: ItemBeaconBinding) : RecyclerView.ViewHolder(binding.root) {
+        var commonCard: CommonCard = binding.commonCard
+    }
 
 }
