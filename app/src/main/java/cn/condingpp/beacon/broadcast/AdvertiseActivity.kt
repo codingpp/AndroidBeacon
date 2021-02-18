@@ -77,6 +77,7 @@ class AdvertiseActivity : AppCompatActivity() {
         mBluetoothLeAdvertiser.startAdvertising(advertiseSettings, advertiseData, advertiseCallback)
     }
 
+    @Suppress("SameParameterValue")
     private fun createAdvertiseSettings(timeoutMillis: Int): AdvertiseSettings {
         val builder = AdvertiseSettings.Builder()
         builder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY)
@@ -85,6 +86,7 @@ class AdvertiseActivity : AppCompatActivity() {
         return builder.build()
     }
 
+    @Suppress("SameParameterValue")
     private fun createAdvertiseData(txPower: Int): AdvertiseData {
         val builder = AdvertiseData.Builder()
         val beaconType = "0215"
