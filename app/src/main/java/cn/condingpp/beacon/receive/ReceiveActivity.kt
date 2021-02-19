@@ -72,7 +72,7 @@ class ReceiveActivity : AppCompatActivity(), BeaconConsumer {
 
     override fun onBeaconServiceConnect() {
         beaconManager.removeAllMonitorNotifiers()
-        beaconManager.addRangeNotifier { beacons, p1 ->
+        beaconManager.addRangeNotifier { beacons, _ ->
             beacons?.let {
                 adapter.update(beacons.toMutableList())
             }
