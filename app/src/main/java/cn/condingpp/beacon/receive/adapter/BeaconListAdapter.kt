@@ -15,7 +15,7 @@ import org.altbeacon.beacon.Beacon
  * @date 2018/9/25
  */
 class BeaconListAdapter(
-    var context: Context,
+    private var context: Context,
     private var beaconList: List<Beacon>
 ) : RecyclerView.Adapter<BeaconListAdapter.MyHolder>() {
 
