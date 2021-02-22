@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.codingpp.beacon.databinding.ActivityBroadcastBinding
+import java.util.*
 import java.util.regex.Pattern
 
 /**
@@ -59,7 +60,7 @@ class BroadcastActivity : AppCompatActivity() {
             return
         }
 
-        val uuid = binding.etUuid.text.toString().toUpperCase()
+        val uuid = binding.etUuid.text.toString().toUpperCase(Locale.getDefault())
         val isValidUUID: Boolean = isValidUUID(uuid)
         if (!isValidUUID) {
             Toast.makeText(this, "UUID格式错误", Toast.LENGTH_SHORT).show()
