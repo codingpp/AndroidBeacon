@@ -1,5 +1,7 @@
 package cn.condingpp.beacon.util
 
+import java.util.*
+
 /**
  * 工具类
  * @author codingpp
@@ -14,7 +16,7 @@ class FormatUtil {
                 return null
             }
 
-            var tempString = hexString.toUpperCase()
+            var tempString = hexString.toUpperCase(Locale.getDefault())
             if (tempString.length % 2 != 0) {
                 tempString = "0$tempString"
             }
