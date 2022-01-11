@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,15 +62,15 @@ public class MainActivity extends AppCompatActivity {
      */
     private void requestPermission() {
         PermissionX.init(this)
-                .permissions(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+                .permissions(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.BLUETOOTH_ADVERTISE, Manifest.permission.BLUETOOTH_SCAN)
                 .onExplainRequestReason(new ExplainReasonCallback() {
                     @Override
-                    public void onExplainReason(ExplainScope scope, List<String> deniedList) {
+                    public void onExplainReason(@NonNull ExplainScope scope, @NonNull List<String> deniedList) {
                         scope.showRequestReasonDialog(deniedList, "即将重新申请的权限是程序必须依赖的权限", "好的", "取消");
                     }
                 }).request(new RequestCallback() {
             @Override
-            public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+            public void onResult(boolean allGranted, @NonNull List<String> grantedList, @NonNull List<String> deniedList) {
                 if (!allGranted) {
                     Toast.makeText(MainActivity.this, "权限已拒绝", Toast.LENGTH_SHORT).show();
                 }

@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
 
     <application
         android:allowBackup="false"
@@ -16,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:exported="true"
             android:name="cn.condingpp.beacon.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -26,14 +29,17 @@
         </activity>
 
         <activity
+            android:exported="false"
             android:name="cn.condingpp.beacon.receive.ReceiveActivity"
             android:screenOrientation="portrait" />
 
         <activity
+            android:exported="false"
             android:name="cn.condingpp.beacon.broadcast.AdvertiseActivity"
             android:screenOrientation="portrait" />
 
         <activity
+            android:exported="false"
             android:name="cn.condingpp.beacon.broadcast.BroadcastActivity"
             android:screenOrientation="portrait" />
 
