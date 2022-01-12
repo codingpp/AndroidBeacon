@@ -1,6 +1,7 @@
 package cn.condingpp.beacon;
 
 import android.Manifest;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.permissionx.guolindev.callback.ExplainReasonCallback;
 import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.codingpp.beacon.databinding.ActivityMainBinding;
@@ -61,8 +63,15 @@ public class MainActivity extends AppCompatActivity {
      * 请求权限
      */
     private void requestPermission() {
+        List<String> permissions = new ArrayList<>();
+        permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            permissions.add(Manifest.permission.BLUETOOTH_ADVERTISE);
+            permissions.add(Manifest.permission.BLUETOOTH_SCAN);
+        }
         PermissionX.init(this)
-                .permissions(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.BLUETOOTH_ADVERTISE, Manifest.permission.BLUETOOTH_SCAN)
+                .permissions(permissions)
                 .onExplainRequestReason(new ExplainReasonCallback() {
                     @Override
                     public void onExplainReason(@NonNull ExplainScope scope, @NonNull List<String> deniedList) {
