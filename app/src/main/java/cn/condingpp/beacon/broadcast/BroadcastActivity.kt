@@ -60,7 +60,7 @@ class BroadcastActivity : AppCompatActivity() {
             return
         }
 
-        val uuid = binding.etUuid.text.toString().toUpperCase(Locale.getDefault())
+        val uuid = binding.etUuid.text.toString().uppercase(Locale.getDefault())
         val isValidUUID: Boolean = isValidUUID(uuid)
         if (!isValidUUID) {
             Toast.makeText(this, "UUID格式错误", Toast.LENGTH_SHORT).show()

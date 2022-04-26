@@ -16,7 +16,7 @@ class FormatUtil {
                 return null
             }
 
-            var tempString = hexString.toUpperCase(Locale.getDefault())
+            var tempString = hexString.uppercase(Locale.getDefault())
             if (tempString.length % 2 != 0) {
                 tempString = "0$tempString"
             }

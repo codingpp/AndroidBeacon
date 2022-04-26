@@ -17,7 +17,7 @@ import org.altbeacon.beacon.*
  * @author codingpp
  */
 
-class ReceiveActivity : AppCompatActivity(), BeaconConsumer {
+class ReceiveActivity : AppCompatActivity(), InternalBeaconConsumer {
 
     private lateinit var binding: ActivityReceiveBinding
 
@@ -67,7 +67,7 @@ class ReceiveActivity : AppCompatActivity(), BeaconConsumer {
     private fun initBeaconManager() {
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager.beaconParsers.add(BeaconParser().setBeaconLayout(BEACON_LAYOUT))
-        beaconManager.bind(this)
+        beaconManager.bindInternal(this)
     }
 
     override fun onBeaconServiceConnect() {
@@ -79,7 +79,7 @@ class ReceiveActivity : AppCompatActivity(), BeaconConsumer {
         }
 
         try {
-            beaconManager.startRangingBeaconsInRegion(Region("", null, null, null))
+            beaconManager.startRangingBeacons(Region("", null, null, null))
         } catch (e: RemoteException) {
         }
     }
@@ -87,6 +87,6 @@ class ReceiveActivity : AppCompatActivity(), BeaconConsumer {
 
     override fun onDestroy() {
         super.onDestroy()
-        beaconManager.unbind(this)
+        beaconManager.unbindInternal(this)
     }
 }

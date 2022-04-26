@@ -1,5 +1,6 @@
 package cn.condingpp.beacon.broadcast
 
+import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.AdvertiseCallback
@@ -8,9 +9,11 @@ import android.bluetooth.le.AdvertiseSettings
 import android.bluetooth.le.BluetoothLeAdvertiser
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import cn.codingpp.beacon.databinding.ActivityAdvertiseBinding
 import cn.condingpp.beacon.util.FormatUtil
 import cn.condingpp.beacon.ext.showToast
@@ -74,6 +77,14 @@ class AdvertiseActivity : AppCompatActivity() {
     private fun startAdvertise() {
         val advertiseSettings = createAdvertiseSettings(0)
         val advertiseData = createAdvertiseData(-59)
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.BLUETOOTH_ADVERTISE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            showToast("开启失败")
+            return
+        }
         mBluetoothLeAdvertiser.startAdvertising(advertiseSettings, advertiseData, advertiseCallback)
     }
 
@@ -121,6 +132,13 @@ class AdvertiseActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.BLUETOOTH_ADVERTISE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
         mBluetoothLeAdvertiser.stopAdvertising(advertiseCallback)
     }
 

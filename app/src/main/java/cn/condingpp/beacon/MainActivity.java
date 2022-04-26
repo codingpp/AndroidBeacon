@@ -3,17 +3,12 @@ package cn.condingpp.beacon;
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.permissionx.guolindev.PermissionX;
-import com.permissionx.guolindev.callback.ExplainReasonCallback;
-import com.permissionx.guolindev.callback.RequestCallback;
-import com.permissionx.guolindev.request.ExplainScope;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,18 +40,8 @@ public class MainActivity extends AppCompatActivity {
      * 初始化view
      */
     private void initView() {
-        binding.btnBroadcast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BroadcastActivity.Companion.jump(MainActivity.this);
-            }
-        });
-        binding.btnReceive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ReceiveActivity.Companion.jump(MainActivity.this);
-            }
-        });
+        binding.btnBroadcast.setOnClickListener(v -> BroadcastActivity.Companion.jump(MainActivity.this));
+        binding.btnReceive.setOnClickListener(v -> ReceiveActivity.Companion.jump(MainActivity.this));
     }
 
     /**
@@ -72,17 +57,9 @@ public class MainActivity extends AppCompatActivity {
         }
         PermissionX.init(this)
                 .permissions(permissions)
-                .onExplainRequestReason(new ExplainReasonCallback() {
-                    @Override
-                    public void onExplainReason(@NonNull ExplainScope scope, @NonNull List<String> deniedList) {
-                        scope.showRequestReasonDialog(deniedList, "即将重新申请的权限是程序必须依赖的权限", "好的", "取消");
-                    }
-                }).request(new RequestCallback() {
-            @Override
-            public void onResult(boolean allGranted, @NonNull List<String> grantedList, @NonNull List<String> deniedList) {
-                if (!allGranted) {
-                    Toast.makeText(MainActivity.this, "权限已拒绝", Toast.LENGTH_SHORT).show();
-                }
+                .onExplainRequestReason((scope, deniedList) -> scope.showRequestReasonDialog(deniedList, "即将重新申请的权限是程序必须依赖的权限", "好的", "取消")).request((allGranted, grantedList, deniedList) -> {
+            if (!allGranted) {
+                Toast.makeText(MainActivity.this, "权限已拒绝", Toast.LENGTH_SHORT).show();
             }
         });
     }

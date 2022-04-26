@@ -19,12 +19,12 @@ android {
         }
     }
 
-    lintOptions {
-        disable 'GoogleAppIndexingWarning'
-    }
 
     buildFeatures {
         viewBinding true
+    }
+    lint {
+        disable 'GoogleAppIndexingWarning'
     }
 }
 
