@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BeaconReceiver</string>
+    <string name="app_name">AndroidBeacon</string>
 
     <string name="no_location_permission">定位权限未开启</string>
     <string name="text_broadcast">发送</string>
