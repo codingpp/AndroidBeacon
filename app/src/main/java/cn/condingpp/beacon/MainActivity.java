@@ -13,6 +13,7 @@ import com.permissionx.guolindev.PermissionX;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.codingpp.beacon.R;
 import cn.codingpp.beacon.databinding.ActivityMainBinding;
 import cn.condingpp.beacon.broadcast.BroadcastActivity;
 import cn.condingpp.beacon.receive.ReceiveActivity;
@@ -57,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
         }
         PermissionX.init(this)
                 .permissions(permissions)
-                .onExplainRequestReason((scope, deniedList) -> scope.showRequestReasonDialog(deniedList, "即将重新申请的权限是程序必须依赖的权限", "好的", "取消")).request((allGranted, grantedList, deniedList) -> {
-            if (!allGranted) {
-                Toast.makeText(MainActivity.this, "权限已拒绝", Toast.LENGTH_SHORT).show();
-            }
-        });
+                .onExplainRequestReason((scope, deniedList) -> scope.showRequestReasonDialog(deniedList, getString(R.string.permission_desc), getString(R.string.text_confirm), getString(R.string.text_cancel))).request((allGranted, grantedList, deniedList) -> {
+                    if (!allGranted) {
+                        Toast.makeText(MainActivity.this, R.string.permission_refuse, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 }

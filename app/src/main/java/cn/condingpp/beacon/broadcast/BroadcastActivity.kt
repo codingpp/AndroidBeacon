@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import cn.codingpp.beacon.R
 import cn.codingpp.beacon.databinding.ActivityBroadcastBinding
 import java.util.*
 import java.util.regex.Pattern
@@ -56,14 +57,14 @@ class BroadcastActivity : AppCompatActivity() {
      */
     private fun startAction() {
         if (!mBluetoothAdapter.isEnabled) {
-            Toast.makeText(this, "请开启蓝牙", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.open_bluetooth), Toast.LENGTH_SHORT).show()
             return
         }
 
         val uuid = binding.etUuid.text.toString().uppercase(Locale.getDefault())
         val isValidUUID: Boolean = isValidUUID(uuid)
         if (!isValidUUID) {
-            Toast.makeText(this, "UUID格式错误", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.id_error), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -72,7 +73,7 @@ class BroadcastActivity : AppCompatActivity() {
             major = Integer.parseInt(binding.etMajor.text.toString())
         }
         if (major < 0 || major > 65535) {
-            Toast.makeText(this, "Major值为0-65535", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.major_value), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -81,7 +82,7 @@ class BroadcastActivity : AppCompatActivity() {
             minor = Integer.parseInt(binding.etMinor.text.toString())
         }
         if (minor < 0 || minor > 65535) {
-            Toast.makeText(this, "Minor值为0-65535", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.minor_value), Toast.LENGTH_SHORT).show()
             return
         }
 

@@ -12,4 +12,15 @@
     <string name="minor">Minor :</string>
     <string name="hint_minor">请输入Minor(0–65535)</string>
     <string name="start">开始发射</string>
+    <string name="start_failed">开启失败</string>
+    <string name="start_success">开启成功</string>
+    <string name="id_empty">UUID不能为空</string>
+    <string name="open_bluetooth">请开启蓝牙</string>
+    <string name="id_error">UUID格式错误</string>
+    <string name="major_value">Major值为0–65535</string>
+    <string name="minor_value">Minor值为0–65535</string>
+    <string name="permission_refuse">权限已拒绝</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_confirm">好的</string>
+    <string name="permission_desc">即将重新申请的权限是程序必须依赖的权限</string>
 </resources>

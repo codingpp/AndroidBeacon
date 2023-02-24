@@ -1,12 +1,17 @@
 package cn.condingpp.beacon.receive
 
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.RemoteException
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import cn.codingpp.beacon.R
 import cn.codingpp.beacon.databinding.ActivityReceiveBinding
 import cn.condingpp.beacon.receive.adapter.BeaconListAdapter
 import org.altbeacon.beacon.*
@@ -27,6 +32,7 @@ class ReceiveActivity : AppCompatActivity(), InternalBeaconConsumer {
 
     private lateinit var beaconManager: BeaconManager
     private lateinit var adapter: BeaconListAdapter
+    private lateinit var mBluetoothAdapter: BluetoothAdapter
 
     companion object {
         /**
@@ -65,6 +71,13 @@ class ReceiveActivity : AppCompatActivity(), InternalBeaconConsumer {
      * 初始化BeaconManager
      */
     private fun initBeaconManager() {
+        val bluetoothManager =
+            getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+        mBluetoothAdapter = bluetoothManager.adapter
+        if (!mBluetoothAdapter.isEnabled) {
+            Toast.makeText(this, R.string.open_bluetooth, Toast.LENGTH_SHORT).show()
+            return
+        }
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager.beaconParsers.add(BeaconParser().setBeaconLayout(BEACON_LAYOUT))
         beaconManager.bindInternal(this)
@@ -81,6 +94,7 @@ class ReceiveActivity : AppCompatActivity(), InternalBeaconConsumer {
         try {
             beaconManager.startRangingBeacons(Region("", null, null, null))
         } catch (e: RemoteException) {
+            Log.e(TAG, "onBeaconServiceConnect e: " + e.message)
         }
     }
 

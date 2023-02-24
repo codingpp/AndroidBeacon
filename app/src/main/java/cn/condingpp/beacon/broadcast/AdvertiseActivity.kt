@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import cn.codingpp.beacon.R
 import cn.codingpp.beacon.databinding.ActivityAdvertiseBinding
 import cn.condingpp.beacon.util.FormatUtil
 import cn.condingpp.beacon.ext.showToast
@@ -82,7 +83,7 @@ class AdvertiseActivity : AppCompatActivity() {
                 Manifest.permission.BLUETOOTH_ADVERTISE
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            showToast("开启失败")
+            showToast(getString(R.string.start_failed))
             return
         }
         mBluetoothLeAdvertiser.startAdvertising(advertiseSettings, advertiseData, advertiseCallback)
@@ -118,13 +119,13 @@ class AdvertiseActivity : AppCompatActivity() {
     private var advertiseCallback = object : AdvertiseCallback() {
 
         override fun onStartSuccess(settingsInEffect: AdvertiseSettings?) {
-            showToast("开启成功")
+            showToast(getString(R.string.start_success))
             binding.successView.visibility = View.VISIBLE
             binding.failView.visibility = View.GONE
         }
 
         override fun onStartFailure(errorCode: Int) {
-            showToast("开启失败$errorCode")
+            showToast("${R.string.start_failed}$errorCode")
             binding.successView.visibility = View.GONE
             binding.failView.visibility = View.VISIBLE
         }
@@ -147,7 +148,7 @@ class AdvertiseActivity : AppCompatActivity() {
      */
     private fun checkParams(): Boolean {
         if (mUuid.isBlank()) {
-            showToast("UUID不能为空")
+            showToast(getString(R.string.id_empty))
             return false
         }
         return true
