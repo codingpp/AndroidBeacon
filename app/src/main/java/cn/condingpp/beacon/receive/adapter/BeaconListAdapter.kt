@@ -1,5 +1,6 @@
 package cn.condingpp.beacon.receive.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import org.altbeacon.beacon.Beacon
 
 /**
  * Beacon设备列表适配器
- * @author codingpp
+ * @author SunPan
  * @date 2018/9/25
  */
 class BeaconListAdapter(
@@ -28,6 +29,7 @@ class BeaconListAdapter(
         return beaconList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun update(beaconList: List<Beacon>) {
         this.beaconList = beaconList
         notifyDataSetChanged()

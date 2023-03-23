@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 
 /**
  * CardView
- * Created by codingpp on 2018/7/20.
+ * Created by SunPan on 2018/7/20.
  */
 @Suppress("unused")
 class CommonCard constructor(context: Context, attributeSet: AttributeSet) :

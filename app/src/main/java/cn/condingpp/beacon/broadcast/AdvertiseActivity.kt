@@ -21,7 +21,7 @@ import cn.condingpp.beacon.ext.showToast
 
 /**
  * 广播页面
- * @author condingpp
+ * @author SunPan
  * @date 2018/9/20
  */
 class AdvertiseActivity : AppCompatActivity() {

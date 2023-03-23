@@ -7,7 +7,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import java.security.MessageDigest
 
 /**
- * Created by codingpp on 2018/7/24.
+ * Created by SunPan on 2018/7/24.
  */
 class GlideRoundedTransform @JvmOverloads constructor(dp: Int = 4) : BitmapTransformation() {
 

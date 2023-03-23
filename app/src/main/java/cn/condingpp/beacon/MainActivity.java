@@ -21,7 +21,7 @@ import cn.condingpp.beacon.receive.ReceiveActivity;
 /**
  * 主页
  *
- * @author codingpp
+ * @author SunPan
  * @date 1/22/21
  */
 public class MainActivity extends AppCompatActivity {

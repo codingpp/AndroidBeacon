@@ -7,7 +7,7 @@ import com.bumptech.glide.request.RequestOptions
 
 /**
  * Glide加载实现
- * Created by codingpp on 2018/7/24.
+ * Created by SunPan on 2018/7/24.
  */
 class GlideImageLoader : ImageLoader {
 

@@ -14,7 +14,7 @@ import java.util.regex.Pattern
 
 /**
  * 主页
- * @author codingpp
+ * @author SunPan
  * @date 2018/9/20
  */
 class BroadcastActivity : AppCompatActivity() {
@@ -94,7 +94,7 @@ class BroadcastActivity : AppCompatActivity() {
      */
     private fun isValidUUID(uuid: String): Boolean {
         val regEx =
-            "^[a-fA-F0-9]{8}[-][a-fA-F0-9]{4}[-][a-fA-F0-9]{4}[-][a-fA-F0-9]{4}[-][a-fA-F0-9]{12}$"
+            "^[a-fA-F\\d]{8}-[a-fA-F\\d]{4}-[a-fA-F\\d]{4}-[a-fA-F\\d]{4}-[a-fA-F\\d]{12}$"
         val pattern = Pattern.compile(regEx)
         val matcher = pattern.matcher(uuid)
         return matcher.matches()

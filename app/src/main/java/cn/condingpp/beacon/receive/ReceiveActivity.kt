@@ -19,14 +19,14 @@ import org.altbeacon.beacon.*
 
 /**
  * 接收页面
- * @author codingpp
+ * @author SunPan
  */
 
 class ReceiveActivity : AppCompatActivity(), InternalBeaconConsumer {
 
     private lateinit var binding: ActivityReceiveBinding
 
-    private val BEACON_LAYOUT: String = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"
+    private val beaconLayout: String = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"
 
     private lateinit var beaconList: ArrayList<Beacon>
 
@@ -79,7 +79,7 @@ class ReceiveActivity : AppCompatActivity(), InternalBeaconConsumer {
             return
         }
         beaconManager = BeaconManager.getInstanceForApplication(this)
-        beaconManager.beaconParsers.add(BeaconParser().setBeaconLayout(BEACON_LAYOUT))
+        beaconManager.beaconParsers.add(BeaconParser().setBeaconLayout(beaconLayout))
         beaconManager.bindInternal(this)
     }
 

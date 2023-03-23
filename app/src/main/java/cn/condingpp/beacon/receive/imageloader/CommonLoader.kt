@@ -4,7 +4,7 @@ import android.widget.ImageView
 import cn.condingpp.beacon.receive.imageloader.glide.GlideImageLoader
 
 /**
- * Created by codingpp on 2018/7/24.
+ * Created by SunPan on 2018/7/24.
  */
 @Suppress("unused")
 class CommonLoader private constructor() {
